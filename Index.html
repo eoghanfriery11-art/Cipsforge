@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipForge — Better Gaming Edits</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:#05070d;color:#f5f5ff;line-height:1.5;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(5,7,13,.82);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07)
+}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:900;letter-spacing:-1px}
+.logo span{color:#8647ff}
+.logo-mark{display:inline-flex;width:30px;height:30px;margin-right:7px;vertical-align:-7px;border-radius:9px;
+  background:linear-gradient(135deg,#6840ff,#b51fff);clip-path:polygon(15% 5%,95% 50%,15% 95%,15% 67%,58% 50%,15% 33%)}
+nav{display:flex;gap:30px;font-size:13px;color:#b9b9c8}
+nav a:hover{color:#fff}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:0;border-radius:999px;padding:13px 22px;font-weight:800;font-size:13px;
+  color:white;background:linear-gradient(100deg,#7138ff,#a326ff);
+  box-shadow:0 0 25px rgba(125,54,255,.3);cursor:pointer;transition:.2s
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(125,54,255,.5)}
+.hero{position:relative;padding:105px 0 90px;min-height:650px}
+.hero:before,.pricing:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 72% 40%,rgba(99,38,255,.22),transparent 32%),
+             radial-gradient(circle at 25% 10%,rgba(23,78,255,.12),transparent 30%);
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.kicker{color:#7955ff;font-size:12px;font-weight:900;letter-spacing:2.5px;margin-bottom:16px}
+h1{font-size:clamp(44px,6vw,72px);line-height:.98;letter-spacing:-4px;font-weight:900;max-width:650px}
+.gradient{background:linear-gradient(90deg,#7545ff,#c027ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#aeb0bf;max-width:560px;margin:25px 0 30px;font-size:16px}
+.perks{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;color:#c7c8d3;font-size:12px}
+.perks span:before{content:"✦";color:#9a55ff;margin-right:7px}
+.showcase{position:relative;height:390px}
+.phone{
+  position:absolute;right:35px;top:0;width:220px;height:390px;border:2px solid #8c43ff;border-radius:25px;
+  background:linear-gradient(160deg,#243d79,#101421 55%,#28104a);
+  box-shadow:0 0 45px rgba(117,50,255,.45);overflow:hidden;transform:rotate(2deg)
+}
+.phone:before{content:"";position:absolute;inset:12px;border-radius:17px;border:1px solid rgba(255,255,255,.1)}
+.game-scene{position:absolute;inset:0;background:
+ linear-gradient(155deg,transparent 20%,rgba(0,0,0,.2) 20%),
+ linear-gradient(25deg,#163e54 0 38%,#0e2034 38% 55%,#325d2d 55%);
+}
+.crosshair{position:absolute;left:50%;top:44%;width:35px;height:35px;transform:translate(-50%,-50%)}
+.crosshair:before,.crosshair:after{content:"";position:absolute;background:#fff;opacity:.8}
+.crosshair:before{width:35px;height:2px;top:16px}.crosshair:after{height:35px;width:2px;left:16px}
+.caption{position:absolute;left:18px;top:32px;font-size:20px;font-weight:900;text-shadow:2px 2px 0 #000}
+.views{position:absolute;bottom:20px;left:18px;font-size:11px;font-weight:800}
+.before,.mini{
+  position:absolute;width:125px;height:225px;border-radius:16px;border:1px solid #394052;
+  background:linear-gradient(160deg,#252832,#101117);overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.35)
+}
+.before{left:5px;top:70px;transform:rotate(-12deg);opacity:.7}
+.mini{right:-20px;top:135px;transform:rotate(12deg);width:105px;height:185px;opacity:.7}
+.before:after,.mini:after{content:"RAW CLIP";position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-weight:900;color:#888}
+.arrow{position:absolute;left:115px;top:45px;color:#9b48ff;font-size:38px;transform:rotate(-20deg)}
+.section{padding:85px 0}
+.section-title{text-align:center;margin-bottom:42px}
+.section-title h2{font-size:34px;letter-spacing:-1.5px}
+.features{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.feature{text-align:center;padding:15px;color:#aeb0bf}
+.icon{font-size:28px;color:#9250ff;margin-bottom:12px}
+.feature h3{font-size:14px;color:#fff;margin-bottom:7px}
+.feature p{font-size:12px}
+.examples{background:#080a11}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.card{height:235px;border-radius:10px;border:1px solid #34394a;position:relative;overflow:hidden;background:linear-gradient(160deg,#355f75,#17202b 45%,#42285e)}
+.card:nth-child(2){background:linear-gradient(160deg,#763f8f,#261d61 45%,#101c45)}
+.card:nth-child(3){background:linear-gradient(160deg,#299fc0,#204e9d 45%,#0d274a)}
+.card:nth-child(4){background:linear-gradient(160deg,#456b55,#28362d 45%,#161a25)}
+.card:nth-child(5){background:linear-gradient(160deg,#2868c0,#173263 45%,#0b1c36)}
+.card:after{content:"";position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.7))}.card small{position:absolute;bottom:13px;right:12px;font-size:10px;font-weight:800;z-index:2;color:#fff}.demo-note{text-align:center;color:#888c9b;font-size:10px;font-weight:800;letter-spacing:1px;margin:-18px 0 22px}
+.card span{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;font-size:17px;font-weight:900;text-shadow:2px 2px #000;z-index:2}
+.pricing{position:relative;background:#070914;overflow:hidden}
+.price-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:auto}
+.price{
+  border:1px solid #3b4050;border-radius:13px;padding:30px;text-align:center;background:#080b12
+}
+.price.popular{border:2px solid #8c42ff;box-shadow:0 0 35px rgba(116,50,255,.18);transform:translateY(-8px)}
+.price h3{font-size:16px}.amount{font-size:38px;font-weight:900;margin:10px 0}
+.price p{color:#9ea1b0;font-size:12px;margin-bottom:22px}
+.price .btn{width:100%}
+.cta{padding:42px 0;border-top:1px solid #242938;border-bottom:1px solid #242938}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.cta h2{font-size:22px}.cta p{color:#9fa2b0;font-size:13px;margin-top:5px}
+footer{padding:25px 0;color:#747786;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){
+ nav{display:none}.hero{padding:70px 0}.hero-grid{grid-template-columns:1fr}.showcase{height:330px}.phone{right:20%;width:190px;height:330px}
+ .features{grid-template-columns:repeat(2,1fr)}.features .feature:last-child{grid-column:1/-1}
+ .cards{grid-template-columns:repeat(2,1fr)}.card:nth-child(n+5){display:none}
+ .price-grid{grid-template-columns:1fr}.price.popular{transform:none}.cta-inner,.footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+ h1{letter-spacing:-2.5px}.showcase{transform:scale(.9);transform-origin:center}.cards{grid-template-columns:1fr 1fr}.card{height:200px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#"><i class="logo-mark"></i>Clip<span>Forge</span></a>
+    <nav>
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#examples">Examples</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact">✈ Get Started</a>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <div class="kicker">TURN YOUR CLIPS INTO CONTENT</div>
+    <h1>YOUR CLIPS<br><span class="gradient">DESERVE BETTER.</span></h1>
+    <p>We turn your gaming clips into short, entertaining videos designed to grab attention. More views. More followers. More hype.</p>
+    <a class="btn" href="#pricing">✈ Get Your Edit Now →</a>
+    <div class="perks"><span>Fast Turnaround</span><span>Affordable Prices</span><span>100% Custom Edits</span></div>
+  </div>
+  <div class="showcase" aria-label="Gaming edit preview">
+    <div class="before"></div>
+    <div class="arrow">↗</div>
+    <div class="phone"><div class="game-scene"></div><div class="caption">1v3 CLUTCH 🔥</div><div class="crosshair"></div><div class="views">▶ 1.2M</div></div>
+    <div class="mini"></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+  <div class="section-title"><div class="kicker">WHAT I OFFER</div><h2>Clean Edits. Big Impact.</h2></div>
+  <div class="features">
+    <div class="feature"><div class="icon">✂</div><h3>Smooth Transitions</h3><p>Keep your viewers hooked from start to finish.</p></div>
+    <div class="feature"><div class="icon">Aa</div><h3>Captions & Text</h3><p>Make your content more engaging.</p></div>
+    <div class="feature"><div class="icon">♫</div><h3>Music Syncing</h3><p>Perfectly timed for maximum hype.</p></div>
+    <div class="feature"><div class="icon">✧</div><h3>Effects & Filters</h3><p>Take your clips to the next level.</p></div>
+    <div class="feature"><div class="icon">◉</div><h3>Fast Delivery</h3><p>Get your edit back quickly, every time.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section examples" id="examples">
+<div class="container">
+  <div class="section-title"><div class="kicker">EXAMPLE EDITS</div><h2>See the Difference</h2></div>
+  <div class="demo-note">DEMO EDITS — THESE ARE SAMPLE CONCEPTS, NOT CUSTOMER RESULTS</div>
+  <div class="cards">
+    <a class="card" href="clipforge_demos/demo1.svg" target="_blank"><span>1V3 CLUTCH 🔥</span><small>▶ Watch demo</small></a>
+    <a class="card" href="clipforge_demos/demo2.svg" target="_blank"><span>LAST SECOND WIN 😳</span><small>▶ Watch demo</small></a>
+    <a class="card" href="clipforge_demos/demo3.svg" target="_blank"><span>PERFECT SNIPE 🎯</span><small>▶ Watch demo</small></a>
+    <div class="card"><span>YOUR CLIP</span><small>Could be next 👀</small></div>
+    <div class="card"><span>YOUR MOMENT</span><small>Send it to ClipForge</small></div>
+  </div>
+</div>
+</section>
+
+<section class="section pricing" id="pricing">
+<div class="container">
+  <div class="section-title"><div class="kicker">PRICING</div><h2>Simple & Affordable</h2></div>
+  <div class="price-grid">
+    <div class="price"><h3>1 Clip</h3><div class="amount">€3</div><p>Perfect for a quick edit.</p><a class="btn" href="#contact">Order Now</a></div>
+    <div class="price popular"><h3>4 Clips</h3><div class="amount">€10</div><p>Great value for growing creators.</p><a class="btn" href="#contact">Order Now</a></div>
+    <div class="price"><h3>10 Clips</h3><div class="amount">€20</div><p>Best for regular content.</p><a class="btn" href="#contact">Order Now</a></div>
+  </div>
+</div>
+</section>
+
+<section class="cta" id="contact">
+<div class="container cta-inner">
+  <div><h2>Ready to take your content to the next level?</h2><p>DM me <strong>“EDIT”</strong> or email <a href="mailto:Eoghanfriery11@gmail.com" style="color:#a66cff;font-weight:700">Eoghanfriery11@gmail.com</a> and send me your clip. Let’s make something amazing.</p></div>
+  <a class="btn" href="mailto:Eoghanfriery11@gmail.com?subject=ClipForge%20Edit">✈ Get Started Now</a>
+</div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><div class="logo"><i class="logo-mark"></i>Clip<span>Forge</span></div><div>© 2026 ClipForge · Better Edits. Bigger Dreams.</div></div></footer>
+</body>
+</html>
